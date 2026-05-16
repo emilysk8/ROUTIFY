@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#7ED957" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>ROUTIFY</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">
+          <img src="assets/logo.png" alt="" width="36" height="36" decoding="async" />
+        </div>
+        <h1>ROUTIFY</h1>
+      </div>
+      <p class="tagline">Fastest foot routes in crowded places</p>
+    </header>
+
+    <main class="main">
+      <section class="search-panel" aria-label="Destination search">
+        <div class="search-row">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input
+            type="search"
+            id="destination-input"
+            placeholder="Where are you going?"
+            autocomplete="off"
+            enterkeyhint="search"
+          />
+          <button type="button" id="route-btn" class="btn btn-primary" disabled>Go</button>
+        </div>
+        <div class="nearby-wrap" id="nearby-wrap" hidden>
+          <p class="nearby-label">Quick picks · under 25 min walk</p>
+          <div id="nearby-chips" class="nearby-chips" role="list"></div>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite">Finding your location…</p>
+        <button type="button" id="location-retry-btn" class="btn btn-secondary location-retry" hidden>
+          Enable location / Try again
+        </button>
+      </section>
+
+      <section class="map-wrap" aria-label="Map">
+        <div id="map"></div>
+        <button type="button" id="recenter-btn" class="fab" title="Center on me" aria-label="Center map on my location">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+          </svg>
+        </button>
+      </section>
+
+      <section class="friends-panel" aria-label="Friends on route">
+        <h2 class="panel-title">Friends nearby</h2>
+        <ul id="friends-list" class="friends-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
