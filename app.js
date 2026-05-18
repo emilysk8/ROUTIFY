@@ -223,6 +223,7 @@
       function (pos) {
         userPosition = { lat: pos.coords.latitude, lng: pos.coords.longitude };
         updateUserMarker(userPosition.lat, userPosition.lng);
+        loadNearbySuggestions();
       },
       function () {},
       { enableHighAccuracy: false, maximumAge: 15000, timeout: 20000 }
